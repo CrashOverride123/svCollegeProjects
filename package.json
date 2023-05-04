@@ -1,27 +1,29 @@
 {
-	"name": "webshop-main",
-	"version": "1.0.0",
-	"description": "This is our svCollege webshop server",
-	"main": "server.js",
-	"scripts": {
-		"start": "nodemon server.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [],
-	"author": "Anton,Anna",
-	"license": "ISC",
-	"dependencies": {
-		"body-parser": "^1.20.2",
-		"eslint": "^8.39.0",
-		"eslint-config-airbnb": "^19.0.4",
-		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-import": "^2.27.5",
-		"eslint-plugin-jsx-a11y": "^6.7.1",
-		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-react": "^7.32.2",
-		"express": "^4.18.2",
-		"mongoose": "^7.1.0",
-		"prettier": "^2.8.8"
-	}
+  "name": "webshop-main",
+  "version": "1.0.0",
+  "description": "This is our svCollege webshop server",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Anton,Anna",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0",
+    "prettier": "^2.8.8"
+  }
 }
