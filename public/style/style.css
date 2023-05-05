@@ -33,12 +33,12 @@ h1 {
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
-    0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+      0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
   }
 
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
-    0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
 }
 
@@ -93,12 +93,14 @@ button {
   font-weight: 600;
   letter-spacing: 1px;
   cursor: pointer;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 button:hover {
   color: #339933;
   border: 1px solid #339933;
   box-shadow: 0 0 5px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2),
     0 0 15px rgba(0, 255, 0, 0.1), 0 2px 0 black;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 .link {
   margin-top: 25px;
