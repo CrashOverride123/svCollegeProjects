@@ -20,7 +20,7 @@ router.get('/product', (req, res) => {
 // posting the response from the server
 //==========================================================================
 router.post('/', (req, res) => {
-  dataBase.uModel.findOne();
+
   res.redirect('/product');
 });
 //==========================================================================
@@ -28,7 +28,7 @@ router.post('/products', (req, res) => {});
 //==========================================================================
 router.post('/signUp', (req, res) => {});
 //==========================================================================
-// exporting the router so we could tell the app from where it gets the
+// exporting the router, so we could tell the app from where it gets the
 // location of the needed pages to run them correctly
 //==========================================================================
 module.exports = router;
