@@ -17,17 +17,14 @@ router.get('/product', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/product.html'));
 });
 //==========================================================================
-router.get('/', (req, res) => {
-  res.json({ msg: 'application' });
-});
+router.get('/', (req, res) => {});
 //==========================================================================
 // posting the response from the server
-//==========================================================================
-router.post('/', (req, res) => {});
 //==========================================================================
 router.post('/products', (req, res) => {});
 //==========================================================================
 router.post('/signUp', (req, res) => {});
+
 //==========================================================================
 // exporting the router, so we could tell the app from where it gets the
 // location of the needed pages to run them correctly

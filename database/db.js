@@ -43,6 +43,9 @@ const oModel = dataBase.model('Orders', schemaOfOrders);
 // This is the section of the db models for the website
 //==========================================================================
 module.exports = dataBase;
-exports.uModel = uModel();
-exports.pModel = pModel();
-exports.oModel = oModel();
+module.exports;
+{
+  uModel;
+  pModel;
+  oModel;
+}

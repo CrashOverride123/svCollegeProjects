@@ -58,7 +58,7 @@ h1 {
   background: linear-gradient(#333, #222);
 }
 .field input,
-section button {
+button {
   height: 50px;
   width: 100%;
   outline: none;
