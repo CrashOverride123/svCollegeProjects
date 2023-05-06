@@ -23,38 +23,43 @@
 // const iExists = () => {};
 
 
-const register = () => {
+const register = (event) => {
+    console.log('start');
+    event.preventDefault()
 
-  const email = document.forms['signUp_form"']['email'].value;
-  const password = document.forms['signUp_form"']['password'].value;
+    const name = document.forms['signUp_form']['name'].value;
+    const email = document.forms['signUp_form']['email'].value;
+    const password = document.forms['signUp_form']['password'].value;
 
-  if (!email || !password) {
-      return false;
-  }
-  fetch('/addUser', {
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      method: "post",
-      body: JSON.stringify({
-          name: name,
-          email: email,
-          password: password,
-      })
-  })
-      .then(res => res.json())
-      .then(data => {
-          if (data.inUse == 'Email is already taken') {
-              alert('Email already exists...');
-          } else {
+    if (!name || !email || !password) {
+        return false;
+    }
+    fetch('/addUser', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "post",
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+        })
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log({data});
+            if (data.inUse == 'Email is already taken') {
 
-              location.href = data.redirect;
-              localStorage.setItem("userId", data.user._id)
-          }
-      })
-      .catch((err) => {
-          console.error(err);
-      })
-  return true;
+                   alert('Email is already taken');
+            } else {
+
+                localStorage.setItem("userId", data.user._id)
+                location.href = data.redirect;
+            }
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+        return true;
 }

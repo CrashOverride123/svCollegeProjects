@@ -9,26 +9,26 @@
     />
     <title>svShop</title>
   </head>
-  <body>
+    <body>
     <div class="login-form">
       <h1 class="title">svShop</h1>
 
-      <form action="/addUser" method="post" name="signUp_form" onsubmit="return register()">
+      <form action="/addUser" method="post" name="signUp_form" onsubmit="return register(event)">
         <div class="field">
-          <div class="fas fa-envelope"></div>
-          <input name="name" type="text" id="email" placeholder="Enter username..." />
+          <div class="fas  fa-user-alt"></div>
+          <input name="name" type="text" id="name" placeholder="Enter username..." />
         </div>
         <div class="field">
           <div class="fas fa-lock"></div>
-          <input name="email" type="email" id="psw" placeholder="Enter email..." />
+          <input name="email" type="email" id="email" placeholder="Enter email..." />
         </div>
         <div class="field">
           <div class="fas fa-lock"></div>
-          <input name="password" type="password" id="psw" placeholder="Enter password" />
+          <input name="password" type="password" id="password" placeholder="Enter password" />
         </div>
-        <button type="submit" value="submit" id="exec">Register</button></a>
-        <script src="./scripts/signUp.js" defer></script>
-      </form>
-    </div>
+        <button class="fas fa-spinner fa-pulse" type="submit" value="submit" id="exec">Register</button></a>
+    </form>
+  </div>
+  <script src="./scripts/signUp.js" defer></script>
   </body>
 </html>
