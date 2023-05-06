@@ -5,7 +5,6 @@ const express = require('express');
 
 const router = express.Router();
 const path = require('path');
-// const dataBase = require('../database/db');
 
 const schema = require('../database/db.js');
 
@@ -39,32 +38,6 @@ router.post('/addUser', async (req, res) => {
   }
 
 })
-// router.post('/addUser', async (req, res) => {
-
-//   let temp = {
-//     name: req.body.name,
-//     email: req.body.email,
-//     password: req.body.password,
-//   }
-//     let result = await schemas.uModel.findOne({email: req.body.email});
-
-//     if (result == null) {
-
-//       await schemas.uModel.insertMany(temp)
-//         res.redirect('/');
-//         console.log(temp);
-        
-//       } else {
-//         res.send({inUse:'Email is already taken'});
-//     }
-// })
-
-// router.get('/', async (req, res) => {
-
-//     res.sendFile(path.join(__dirname, '../public/index.html'));
-    
-// })
-
 //==========================================================================
 //==========================================================================
 // posting the response from the server

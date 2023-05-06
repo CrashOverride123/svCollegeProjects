@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
+    />
+    <title>svShop</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="./style/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css" />
-  <title>svShop</title>
-</head>
+  <body>
+    <div class="login-form">
+      <h1 class="title">svShop</h1>
 
-<body>
-  <div class="login-form">
-    <h1 class="title">svShop</h1>
+      <div>
+        <div class="field">
+          <div class="fas fa-user-alt"></div>
+          <input
+            name="name"
+            type="text"
+            id="name"
+            placeholder="Enter username..."
+          />
+        </div>
 
-    <div>
+        <div class="field">
+          <div class="fas fa-lock"></div>
+          <input
+            name="email"
+            type="email"
+            id="email"
+            placeholder="Enter email..."
+          />
+        </div>
 
-      <div class="field">
-        <div class="fas  fa-user-alt"></div>
-                <input name="name" type="text" id="name" placeholder="Enter username..." />
+        <div class="field">
+          <div class="fas fa-lock"></div>
+          <input
+            name="password"
+            type="password"
+            id="password"
+            placeholder="Enter password"
+          />
+        </div>
+
+        <button
+          class="fas fa-registered"
+          type="submit"
+          value="submit"
+          id="exec"
+        >
+          Register
+        </button>
       </div>
-
-      <div class="field">
-        <div class="fas fa-lock"></div>
-                <input name="email" type="email" id="email" placeholder="Enter email..." />
-      </div>
-
-      <div class="field">
-        <div class="fas fa-lock"></div>
-                <input name="password" type="password" id="password" placeholder="Enter password" />
-      </div>
-
-      <button class="fas fa-spinner fa-pulse" type="submit" value="submit" id="exec">Register</button>
-
     </div>
-  </div>
-  <script src="./scripts/signUp.js" defer></script>
-</body>
-
+    <script src="./scripts/signUp.js" defer></script>
+  </body>
 </html>
