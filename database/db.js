@@ -4,7 +4,7 @@
 //==========================================================================
 const dataBase = require('mongoose');
 
-const host = 'mongodb+srv://mongodb+srv://toni97:Nz7eqh6b@svshop.7rozj8r.mongodb.net/svShop';
+const host = 'mongodb+srv://toni97:Nz7eqh6b@svshop.7rozj8r.mongodb.net/svShop';
 //==========================================================================
 // Here we create the database connectivity interface
 //==========================================================================
