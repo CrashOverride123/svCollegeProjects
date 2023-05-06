@@ -7,56 +7,68 @@ const router = express.Router();
 const path = require('path');
 // const dataBase = require('../database/db');
 
-const uModel = require('../database/db');
-const pModel = require('../database/db');
-const oModel = require('../database/db');
-
+const schema = require('../database/db.js');
 
 //==========================================================================
 // asking the server to retrieve the specified files from our application
 //==========================================================================
-// router.get('/signUp', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../public/product.html'));
-// });
-//==========================================================================
-router.get('/product', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/product.html'));
-});
 
+//==========================================================================
 
 router.post('/addUser', async (req, res) => {
 
-  let temp = {
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
+  console.log(req.body)
+
+  let result = {};
+
+  const name = req.body.name;
+  const email = req.body.email;
+  const password = req.body.password;
+  try
+  {
+    const user = new schema.uModel({name: name, email: email, password: password});
+    result = await user.save();
+  }
+  catch (err) 
+  { 
+    result.error = err.message;
+  } 
+  finally 
+  {
+    res.send({status:200, message: 'success', result: result});
   }
 
-    let result = await schemas.uModel.findOne({email: req.body.email});
+})
+// router.post('/addUser', async (req, res) => {
 
-    if (result == null) {
+//   let temp = {
+//     name: req.body.name,
+//     email: req.body.email,
+//     password: req.body.password,
+//   }
+//     let result = await schemas.uModel.findOne({email: req.body.email});
 
-      await schemas.uModel.insertMany(temp)
-        res.redirect('/');
+//     if (result == null) {
+
+//       await schemas.uModel.insertMany(temp)
+//         res.redirect('/');
+//         console.log(temp);
         
-      } else {
+//       } else {
+//         res.send({inUse:'Email is already taken'});
+//     }
+// })
 
-        res.send({inUse:'Email is already taken'});
-    }
-})
+// router.get('/', async (req, res) => {
 
-router.get('/', (req, res) => {
-
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+//     res.sendFile(path.join(__dirname, '../public/index.html'));
     
-})
-
+// })
 
 //==========================================================================
 //==========================================================================
 // posting the response from the server
 //==========================================================================
-router.post('/products', (req, res) => {});
 //==========================================================================
 // router.post('/signUp', (req, res) => {});
 

@@ -23,43 +23,96 @@
 // const iExists = () => {};
 
 
-const register = (event) => {
-    console.log('start');
-    event.preventDefault()
 
-    const name = document.forms['signUp_form']['name'].value;
-    const email = document.forms['signUp_form']['email'].value;
-    const password = document.forms['signUp_form']['password'].value;
+// const register = (event) => {
+//     event.preventDefault()
 
-    if (!name || !email || !password) {
-        return false;
+//     const name = document.forms['signUp_form']['name'].value;
+//     const email = document.forms['signUp_form']['email'].value;
+//     const password = document.forms['signUp_form']['password'].value;
+
+//     // if (!name || !email || !password) {
+//     //     return false;
+//     // }
+
+//     fetch('/addUser', {
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json'
+//         },
+//         method: "post",
+//         body: JSON.stringify({
+//             name: name,
+//             email: email,
+//             password: password,
+//         })
+//     })
+//         .then(res => res.json())
+//         .then(data => {
+
+//             if (data.inUse == 'Email is already taken') {
+
+//                 alert('Email is already taken');
+
+//             } else {
+
+//                 location.href = data.redirect;
+//                 localStorage.setItem("userId", data.user._id)
+//             }
+//         })
+//         .catch(console.log)
+//     return true;
+// }
+
+
+const button = document.getElementById('exec');
+
+button.addEventListener('click', async (event) => {
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+
+    if (!name.value || !email.value || !password.value) {
+        throw new Error("invalid input");
     }
-    fetch('/addUser', {
+
+    console.log({ name, email, password });
+
+    console.log('click');
+
+    const url = '/addUser';
+
+    const fetchOptions = {
+        method: 'post',
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'content-type': 'application/json',
         },
-        method: "post",
         body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password,
+            name: name.value,
+            email: email.value,
+            password: password.value,
         })
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log({data});
-            if (data.inUse == 'Email is already taken') {
+    }
 
-                   alert('Email is already taken');
-            } else {
+    try {
+        const response = await fetch(url, fetchOptions)
+        const data = await response.json();
 
-                localStorage.setItem("userId", data.user._id)
-                location.href = data.redirect;
-            }
-        })
-        .catch((err) => {
-            console.error(err);
-        })
-        return true;
-}
+        if (data.result.error) 
+        {
+            alert('Email already exists...');
+        }
+        else 
+        {
+            window.location.replace('/');
+        }
+
+        console.log(result);
+
+    }
+    catch (err) 
+    {
+        throw new Error(err);
+    }
+})

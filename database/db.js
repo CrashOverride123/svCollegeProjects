@@ -21,7 +21,7 @@ dataBase
 //==========================================================================
 const userSchema = dataBase.Schema({
   name: String,
-  email: String,
+  email: {type: String, unique:true},
   password: String,
 });
 //==========================================================================
@@ -42,7 +42,7 @@ const oModel = dataBase.model('Orders', schemaOfOrders);
 // This is the section of the db models for the website
 //==========================================================================
 // module.exports = dataBase;
-module.exports = schemas = { 
+module.exports = { 
     uModel,
     pModel,
     oModel,
