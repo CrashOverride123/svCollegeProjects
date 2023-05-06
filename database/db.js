@@ -4,7 +4,7 @@
 //==========================================================================
 const dataBase = require('mongoose');
 
-const host = 'mongodb+srv://toni97:Nz7eqh6b@svshop.7rozj8r.mongodb.net/svShop';
+const host = 'mongodb+srv://mongodb+srv://toni97:Nz7eqh6b@svshop.7rozj8r.mongodb.net/svShop';
 //==========================================================================
 // Here we create the database connectivity interface
 //==========================================================================
@@ -23,7 +23,6 @@ const userSchema = dataBase.Schema({
   name: String,
   email: String,
   password: String,
-  confirm: String,
 });
 //==========================================================================
 const productList = dataBase.Schema({
@@ -42,10 +41,9 @@ const oModel = dataBase.model('Orders', schemaOfOrders);
 //==========================================================================
 // This is the section of the db models for the website
 //==========================================================================
-module.exports = dataBase;
-module.exports;
-{
-  uModel;
-  pModel;
-  oModel;
+// module.exports = dataBase;
+module.exports = schemas = { 
+    uModel,
+    pModel,
+    oModel,
 }
