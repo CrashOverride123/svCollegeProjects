@@ -16,6 +16,36 @@ router.get('/signUp', (req, res) => {
 router.get('/product', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/product.html'));
 });
+
+
+router.post('/addUser', async (req, res) => {
+
+  let temp = {
+    email: req.body.email,
+    password: req.body.password,
+  }
+  console.log(temp);
+
+    let result = await schemas.uModel.findOne({email: req.body.email});
+
+    if (result == null) {
+
+      await schemas.uModel.insertMany(temp)
+        res.redirect('/products');
+
+    } else {
+        res.json({inUse: 'Email is already taken'});
+
+
+    }
+})
+
+router.get('/products', (req, res) => {
+
+    res.sendFile(path.join(__dirname, '../public/product.html'));
+})
+
+
 //==========================================================================
 router.get('/', (req, res) => {});
 //==========================================================================
