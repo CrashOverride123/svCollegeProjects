@@ -42,8 +42,6 @@ router.post('/addUser', async (req, res) => {
 
     } else {
         res.json({inUse: 'Email is already taken'});
-
-
     }
 })
 
