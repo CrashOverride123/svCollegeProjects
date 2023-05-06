@@ -38,6 +38,7 @@ const register = () => {
       },
       method: "post",
       body: JSON.stringify({
+          name: name,
           email: email,
           password: password,
       })
@@ -45,7 +46,7 @@ const register = () => {
       .then(res => res.json())
       .then(data => {
           if (data.inUse == 'Email is already taken') {
-              alert('Email already exists...')
+              alert('Email already exists...');
           } else {
 
               location.href = data.redirect;
