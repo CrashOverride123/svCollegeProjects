@@ -1,10 +1,8 @@
 //============================================================================
 // checking to see if the user is trying to login or just playing around
 //============================================================================
-
-
 const button = document.getElementById('exec');
-
+//============================================================================
 button.addEventListener('click', async (event) => {
 
     const name = document.getElementById('name');
@@ -12,7 +10,7 @@ button.addEventListener('click', async (event) => {
     const password = document.getElementById('password');
 
     if (!name.value || !email.value || !password.value) {
-        throw new Error(alert("Cant be Blank"));
+        throw new Error(alert("You must provide all of the required fields!!"));
     }
 
     console.log({ name, email, password });
@@ -47,3 +45,4 @@ button.addEventListener('click', async (event) => {
         throw new Error(err);
     }
 })
+//============================================================================
