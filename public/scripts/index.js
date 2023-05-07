@@ -1,19 +1,20 @@
-// import { uModel } from '../../database/db.js';
-// //==================================================================================
-// // next we check if the user information matches the one in the db
-// //==================================================================================
-// const isReg = () => async () => {
-//   const result = await uModel.findOne({
-//     email: req.body.email,
-//     password: req.body.password,
-//   });
-//   if (result == null) {
-//     res.json('user not found');
-//   } else {
-//     res.json(result);
-//   }
-// };
-// findIfUserExist();
-// //================================================================================
-// window.addEventListener('inspection', isReg);
-// document.getElementById('exec').addEventListener('click', isReg);
+//==================================================================================
+// next we check if the input fields were entered or left blank
+//==================================================================================
+const isEmpty = () => {
+ //================================================================================   
+    const email = document.getElementById('email');
+    const password = document.getElementById('psw');
+ //================================================================================   
+    if (!email || password == '') {
+        alert("Please don't leave\n" + "Email" + " " + " & " + "Password" + " " + "Empty" );
+    } else {
+        
+    }
+//================================================================================
+}
+window.addEventListener('inspection',isEmpty,);
+document.getElementById('exec').addEventListener('click', isEmpty);
+//================================================================================
+// now we check if the user entered the correct length of his info
+//================================================================================
