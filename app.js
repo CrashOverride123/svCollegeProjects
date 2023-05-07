@@ -2,7 +2,6 @@
 // this will be the app main entry point for the web to start
 //==========================================================================
 const express = require('express');
-
 const app = express();
 const bodyParse = require('body-parser');
 const path = require('path');
