@@ -15,7 +15,7 @@ const iValid = () => {
     .then(res => res.json())
     .then((data) => {
         if (data === true) {
-            location.href = '/'
+            location.href = '/products'
         } else {
             alert(data);
         }

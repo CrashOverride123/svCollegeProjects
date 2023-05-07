@@ -2,11 +2,11 @@
 // definitions of the dependencies in order to run the pages
 //==========================================================================
 const express = require('express');
-
 const router = express.Router();
 const path = require('path');
-
 const schema = require('../database/db.js');
+//========================================================================
+// posting the requests to the server 
 //==========================================================================
 router.post('/addUser', async (req, res) => {
 
@@ -32,6 +32,7 @@ router.post('/addUser', async (req, res) => {
   }
 
 })
+//==========================================================================
 router.post('/validation', (req, res) => {
   const iValid = async () => {
     const temp = {
@@ -39,16 +40,22 @@ router.post('/validation', (req, res) => {
       password: req.body.password,
     }
     const validatedUser = await schema.uModel.findOne({ email: temp.email, password: temp.password });
-    
+    if (validatedUser === null) {
+      res.json('Error the user doesnt exist');
+    } else {
+      res.json(true);
+    }
   }
   iValid()
 })
-
+//==========================================================================
+// posting the get requests to the server
+//==========================================================================
+router.get('/products', (req,res) => {
+  res.sendFile(path.join(__dirname, '../public/product.html')); 
+})
 //==========================================================================
 
-//==========================================================================
-// posting the response from the server
-//==========================================================================
 //==========================================================================
 // exporting the router, so we could tell the app from where it gets the
 // location of the needed pages to run them correctly
