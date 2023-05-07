@@ -7,13 +7,7 @@ const router = express.Router();
 const path = require('path');
 
 const schema = require('../database/db.js');
-
 //==========================================================================
-// asking the server to retrieve the specified files from our application
-//==========================================================================
-
-//==========================================================================
-
 router.post('/addUser', async (req, res) => {
 
   console.log(req.body)
@@ -38,13 +32,23 @@ router.post('/addUser', async (req, res) => {
   }
 
 })
+router.post('/validation', (req, res) => {
+  const iValid = async () => {
+    const temp = {
+      email: req.body.email,
+      password: req.body.password,
+    }
+    const validatedUser = await schema.uModel.findOne({ email: temp.email, password: temp.password });
+    
+  }
+  iValid()
+})
+
 //==========================================================================
+
 //==========================================================================
 // posting the response from the server
 //==========================================================================
-//==========================================================================
-// router.post('/signUp', (req, res) => {});
-
 //==========================================================================
 // exporting the router, so we could tell the app from where it gets the
 // location of the needed pages to run them correctly

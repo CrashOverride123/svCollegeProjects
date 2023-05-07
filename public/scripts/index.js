@@ -1,20 +1,24 @@
-//==================================================================================
-// next we check if the input fields were entered or left blank
-//==================================================================================
-const isEmpty = () => {
- //================================================================================   
-    const email = document.getElementById('email');
-    const password = document.getElementById('psw');
- //================================================================================   
-    if (email || password == '') {
-        alert("Please don't leave\n" + "Email" + " " + " & " + "Password" + " " + "Empty" );
-    } else {
-        
-    }
-//================================================================================
+//============================================================================
+// checking to see if the user is trying to login or just playing around
+//============================================================================
+const iValid = () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('psw').value;
+    fetch('/validation', {
+        headers: { "Accept": 'application/json', 'Content-Type': 'application/json' },
+        method: 'post',
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    })
+    .then(res => res.json())
+    .then((data) => {
+        if (data === true) {
+            location.href = '/'
+        } else {
+            alert(data);
+        }
+    
+    })
 }
-window.addEventListener('inspection',isEmpty,);
-document.getElementById('exec').addEventListener('click', isEmpty);
-//================================================================================
-// now we check if the user entered the correct length of his info
-//================================================================================

@@ -12,34 +12,27 @@
   <body>
     <div class="login-form">
       <h1 class="title">svShop</h1>
-      <section>
-        <div class="field">
-          <div class="fas fa-envelope"></div>
-          <input
-            type="text"
-            id="email"
-            placeholder="email"
-            aria-label="email"
-          />
-        </div>
-        <div class="field">
-          <div class="fas fa-key"></div>
-          <input
-            type="password"
-            id="psw"
-            placeholder="Password"
-            aria-label="password"
-          />
-        </div>
-        <button class="fas fa-thumbs-up" type="submit" value="submit" id="exec">
-          Submit
-        </button>
-        <div class="link">
-          Not a member?
-          <a href="./signUp.html">Signup now</a>
-        </div>
-        <script src="./scripts/index.js" defer></script>
-      </section>
+      <div class="field">
+        <div class="fas fa-envelope"></div>
+        <input type="text" id="email" placeholder="email" aria-label="email" />
+      </div>
+      <div class="field">
+        <div class="fas fa-key"></div>
+        <input
+          type="password"
+          id="psw"
+          placeholder="Password"
+          aria-label="password"
+        />
+      </div>
+      <button class="fas fa-thumbs-up" id="exec" onclick="iValid()">
+        Submit
+      </button>
+      <div class="link">
+        Not a member?
+        <a href="./signUp.html">Signup now</a>
+      </div>
+      <script src="./scripts/index.js" defer></script>
     </div>
   </body>
 </html>

@@ -20,7 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // tells the web app that it has 3 pages to run from router
 //==========================================================================
 app.use('/', router);
-// app.use('/signUp', router);
 app.use('/product', router);
 //==========================================================================
 // exporting the public app to the server
