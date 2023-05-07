@@ -6,7 +6,7 @@ const isEmpty = () => {
     const email = document.getElementById('email');
     const password = document.getElementById('psw');
  //================================================================================   
-    if (!email || password == '') {
+    if (email || password == '') {
         alert("Please don't leave\n" + "Email" + " " + " & " + "Password" + " " + "Empty" );
     } else {
         
