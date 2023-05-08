@@ -1,51 +1,37 @@
-// Get the products and display them
-const getAllProductsToUser = async () => {
-  const products = await fetch('/products', { method: 'GET' }).then((res) =>
-    res.json()
-  );
-  const productsContainer = document.getElementById('main');
-  productsContainer.innerHTML = '';
-  products.forEach((product) => {
-    const productElem = document.createElement('div');
-    productElem.classList.add('product');
+const getAllProductsToUser = () => {
+  fetch('/productsFromDb')
+    .then((res) => res.json())
+    .then((data) => {
+      let sortBtn = document.getElementById('sortBtn');
+      let temp = data;
 
-    const productImage = document.createElement('img');
-    productImage.src = product.image;
+      sortBtn.addEventListener('click', () => {
+        let mySortArr = [...temp];
+        let mainDiv = document.getElementById('main');
+        mainDiv.innerHTML = ''; // Clear previous content
+        let choose = document.getElementById('select').value;
 
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('info');
+        if (choose == 'name') {
+          mySortArr.sort((a, b) => a.product - b.product);
+        } else if (choose == 'price') {
+          mySortArr.sort((a, b) => a.price - b.price);
+        } else {
+          return;
+        }
 
-    const productName = document.createElement('h3');
-    productName.innerText = product.name;
-
-    const productDescription = document.createElement('p');
-    productDescription.innerText = product.description;
-
-    const productPrice = document.createElement('div');
-    productPrice.classList.add('price');
-    productPrice.innerText = `$${product.price}`;
-
-    productInfo.appendChild(productName);
-    productInfo.appendChild(productDescription);
-    productInfo.appendChild(productPrice);
-
-    productElem.appendChild(productImage);
-    productElem.appendChild(productInfo);
-
-    productsContainer.appendChild(productElem);
-  });
-};
-
-// Sort the products by name or price
-const sortProducts = async (sortBy) => {
-  const products = await fetch(`/products?sort=${sortBy}`, {
-    method: 'GET',
-  }).then((res) => res.json());
-
-  const productsContainer = document.getElementById('main');
-  productsContainer.innerHTML = '';
-
-  products.forEach((product) => {
-    const productElem = document.createElement;
-  });
+        let orders = [];
+        let user = localStorage.getItem('userName');
+        mySortArr.forEach((val) => {
+          let div = document.createElement('div');
+          div.style.border = '1.5px blue solid';
+          div.style.margin = '10px';
+          div.innerHTML = val.product;
+          div.innerHTML += val.price;
+          div.addEventListener('click', () => {
+            orders.push(val);
+          });
+          mainDiv.append(div); // Append new element to main div
+        });
+      });
+    });
 };

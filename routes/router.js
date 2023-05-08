@@ -51,10 +51,27 @@ router.post('/validation', (req, res) => {
   };
   iValid();
 });
-//==========================================================================
-// inserting an array of items into the db and than displaying them
-//==========================================================================
+//================================================================================
+router.get('/productsFromDb', (req, res) => {
+  const getProducts = async () => {
+    let allProduct = await schema.pModel.find();
+    res.json(allProduct);
+  };
+  getProducts();
+});
 
+router.post('/orders', (req, res) => {
+  let temp = {
+    userName: req.body.user,
+    ordersArr: req.body.order,
+  };
+
+  const addToDb = async (userWithArr) => {
+    await ordersModel.insertMany(userWithArr);
+  };
+
+  addToDb(temp);
+});
 //==========================================================================
 // posting the get requests to the server
 //==========================================================================
