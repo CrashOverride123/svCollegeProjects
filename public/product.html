@@ -2,31 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/product.css" />
+    <title>Shopping Cart</title>
   </head>
-
-  <body onload="getAllProductsToUser()">
-    <h1>Products Page</h1>
-
-    <input
-      type="text"
-      id="searchBar"
-      placeholder="Search products..."
-      aria-label="Search products..."
-    />
-
-    <select id="select">
-      <option value="">Sort</option>
-      <option value="name">Sort by Name</option>
-      <option value="price">Sort by Price</option>
-    </select>
-    <button id="sortBtn">Sort</button>
-
+  <body>
+    <h1>Shopping Cart</h1>
+    <div>
+      <label for="sort">Sort By:</label>
+      <select id="sort">
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+      </select>
+      <button id="sortBtn" onclick="sorting()">Sort</button>
+    </div>
     <div id="main"></div>
-
+    <h2>Shopping Cart</h2>
+    <ul id="cart-list"></ul>
+    <p>Total: <span id="total">$0.00</span></p>
+    <button type="button" onclick="iAdded()">Add to Cart</button>
     <script src="scripts/product.js"></script>
   </body>
 </html>

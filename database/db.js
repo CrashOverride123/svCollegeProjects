@@ -28,7 +28,6 @@ const userSchema = dataBase.Schema({
 const productList = dataBase.Schema({
   name: String,
   price: Number,
-  quantity: Number,
 });
 //==========================================================================
 const schemaOfOrders = dataBase.Schema({

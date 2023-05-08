@@ -7,7 +7,33 @@ const path = require('path');
 const schema = require('../database/db.js');
 const { Schema } = require('mongoose');
 //================================================================================
-// Performs registration if everything is correctly registered
+// initializing an array of products
+//================================================================================
+let products = [
+  {
+    name: 'Product 1',
+    price: 10,
+  },
+  {
+    name: 'Product 2',
+    price: 5,
+  },
+  {
+    name: 'Product 3',
+    price: 20,
+  },
+  {
+    name: 'Product 4',
+    price: 15,
+  },
+];
+
+const appendProduct = async (arr) => {
+  await schema.pModel.insertMany(arr);
+};
+ appendProduct(products);
+ //===============================================================================
+ // Register the user to the database
 //================================================================================
 router.post('/addUser', async (req, res) => {
   console.log(req.body);
@@ -46,31 +72,39 @@ router.post('/validation', (req, res) => {
     if (validatedUser === null) {
       res.json(`Error the user doesn't exist`);
     } else {
-      res.json(true);
+      res.json({ result: true, name: validatedUser.name });
     }
   };
   iValid();
 });
 //================================================================================
-router.get('/productsFromDb', (req, res) => {
-  const getProducts = async () => {
-    let allProduct = await schema.pModel.find();
-    res.json(allProduct);
-  };
-  getProducts();
-});
-
-router.post('/orders', (req, res) => {
-  let temp = {
+// 
+//================================================================================
+router.post('/admitToUser', async (req, res) => {
+  const tempI = {
     userName: req.body.user,
-    ordersArr: req.body.order,
+    ordersArr: req.body.cOrder,
   };
-
-  const addToDb = async (userWithArr) => {
-    await ordersModel.insertMany(userWithArr);
-  };
-
-  addToDb(temp);
+  await schema.oModel.insertMany(tempI);
+  res.json(true);
+});
+//================================================================================
+// Takes the items out from the db and returns
+//================================================================================
+router.get('/productsFromDb', async (req, res) => {
+  try {
+    const allProducts = await schema.pModel.find();
+    res.json(allProducts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+//================================================================================
+// Performs a checkout for the user order
+//================================================================================
+router.get('/checkOut', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../public/pItems.html'));
 });
 //==========================================================================
 // posting the get requests to the server

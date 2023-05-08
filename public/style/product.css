@@ -64,3 +64,45 @@ h1 {
   text-align: center;
   font-size: 16px;
 }
+/* style.css */
+
+#cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #eee;
+  padding: 10px;
+  box-sizing: border-box;
+  display: none;
+}
+
+#cart h2 {
+  margin-top: 0;
+}
+
+#cartList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#cartList li {
+  margin-bottom: 10px;
+}
+/* Add CSS styles here */
+.selected {
+  background-color: yellow;
+}
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  box-shadow: 0px 0px 10px #888;
+  overflow-y: auto;
+}
