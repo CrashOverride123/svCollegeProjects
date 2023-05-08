@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="gtf-8" />
-    <title>svCollegeShop</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Products Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/products.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
   </head>
-  <body>
-    <form method="POST" action="/products">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" />
+  <body onload="getAllProductsToUser()">
+    <header>
+      <h1>Products Page</h1>
+    </header>
 
-      <label for="price">Price:</label>
-      <input type="number" id="price" name="price" />
+    <main class="container">
+      <div class="controls">
+        <label for="select">Sort By:</label>
+        <select id="select">
+          <option value="">---</option>
+          <option value="name">Name</option>
+          <option value="price">Price</option>
+        </select>
+        <button id="sortBtn">Sort</button>
+      </div>
 
-      <button type="submit">Add product</button>
-      <button type="button" class="withdraw">Withdraw</button>
-    </form>
+      <div id="main"></div>
+    </main>
+
+    <script src="./scripts/product.js" defer></script>
   </body>
 </html>

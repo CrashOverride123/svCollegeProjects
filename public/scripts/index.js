@@ -15,7 +15,7 @@ const iValid = () => {
     .then((res) => res.json())
     .then((data) => {
       if (data === true) {
-        location.href = '/products';
+        location.href = './product.html';
       } else {
         alert(data);
       }
