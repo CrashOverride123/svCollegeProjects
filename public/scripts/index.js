@@ -4,6 +4,10 @@
 const iValid = () => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('psw').value;
+  if (!email || !password) {
+    alert('Please enter both email and password');
+    return;
+  }
   fetch('/validation', {
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
     method: 'post',
@@ -22,3 +26,5 @@ const iValid = () => {
     });
 };
 //============================================================================
+const submitBtn = document.getElementById('exec');
+submitBtn.addEventListener('click', iValid);
