@@ -51,54 +51,12 @@ router.post('/validation', (req, res) => {
   };
   iValid();
 });
-//=================================================================
-// inserting an array of items into the db and than displaying them
-//=================================================================
-const products = [
-  { name: 'Computer', price: 3000 },
-  { name: 'Pen', price: 100 },
-  { name: 'Paper', price: 10 },
-];
-const insertProducts = async () => {
-  const existingProducts = await schema.pModel.find({});
-
-  if (existingProducts.length === 0) {
-    schema.pModel
-      .insertMany(products)
-      .then((result) => {
-        console.log(`${result.length} products inserted successfully`);
-      })
-      .catch((error) => {
-        console.error(`Error inserting products: ${error}`);
-      });
-  } else {
-    console.log(`Products already exist in the database`);
-  }
-};
-insertProducts();
 //==========================================================================
-router.get('/productsFromDb', (req, res) => {
+// inserting an array of items into the db and than displaying them
+//==========================================================================
 
-    const getProducts = async () => {
-        let allProduct = await schema.pModel.find()
-        res.json(allProduct)
-    }
-    getProducts()
-})
+//==========================================================================
 
-router.post('/orders', (req, res) => {
-
-    let temp = {
-        userName: req.body.user,
-        ordersArr: req.body.order
-    }
-
-    const addToDb = async (userWithArr) => {
-        await schema.pModel.insertMany(userWithArr)
-    }
-
-    addToDb(temp)
-})
 //==========================================================================
 // posting the get requests to the server
 //==========================================================================

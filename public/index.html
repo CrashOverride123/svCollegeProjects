@@ -1,38 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
-    <meta charset="gtf-8" />
-    <title>svCollegeShop</title>
-    <link rel="stylesheet" href="style/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <link rel="stylesheet" href="style/products.css" />
   </head>
-  <body>
-    <div class="login-form">
-      <h1 class="title">svShop</h1>
-      <div class="field">
-        <div class="fas fa-envelope"></div>
-        <input type="text" id="email" placeholder="email" aria-label="email" />
-      </div>
-      <div class="field">
-        <div class="fas fa-key"></div>
-        <input
-          type="password"
-          id="psw"
-          placeholder="Password"
-          aria-label="password"
-        />
-      </div>
-      <button class="fas fa-thumbs-up" id="exec" onclick="iValid()">
-        Submit
-      </button>
-      <div class="link">
-        Not a member?
-        <a href="./signUp.html">Signup now</a>
-      </div>
-      <script src="./scripts/index.js" defer></script>
-    </div>
+
+  <body onload="getAllProductsToUser()">
+    <h1>products page</h1>
+
+    <select id="select">
+      <option value="">sort</option>
+      <option value="name">sort by name</option>
+      <option value="price">sort by price</option>
+    </select>
+    <button id="sortBtn">sort</button>
+    <div id="main"></div>
+
+    <script src="script.js"></script>
   </body>
 </html>
